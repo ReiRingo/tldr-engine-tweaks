@@ -256,9 +256,7 @@ function item_a_shadowmantle() : item_armor() constructor {
 }
 item_register(item_a_shadowmantle);
 
-function item_a_scarletbadge(data = {
-        save_colors: {},
-    }) : item_armor() constructor {
+function item_a_scarletbadge() : item_armor() constructor {
     name = ["ScarletBadge"]
     desc = ["Debug item. The bearer's color shifts to a dull red while worn.", "--"]
     
@@ -276,13 +274,18 @@ function item_a_scarletbadge(data = {
 		noelle: "Candy-cane red? Does it look good?",
 	}
     
-    _data = data;
+    _data = {
+        save_colors: {},
+    };
     scarlet_icons = {
         kris: spr_ex_misc_scarlet_icon_kris,
         susie: spr_ex_misc_scarlet_icon_susie,
         ralsei: spr_ex_misc_scarlet_icon_ralsei,
         noelle: spr_ex_misc_scarlet_icon_noelle,
     }
+    _const_init = method(self, function(data) {
+        _data = data;
+    });
     
     apply = method(self, function(member_name) {
         _data.save_colors = {

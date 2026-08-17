@@ -134,8 +134,7 @@
             },
             "reactions": {
                 "susie": "... how is this a weapon?",
-                "ralsei": "I... shouldn't use it.",
-                "noelle": ""
+                "ralsei": "I... shouldn't use it."
             }
         },
         "ja": {
@@ -146,12 +145,11 @@
             },
             "reactions": {
                 "susie": "…これが武器？",
-                "ralsei": "ボクは…使っちゃダメ",
-                "noelle": ""
+                "ralsei": "ボクは…使っちゃダメ"
             }
         }
     },
-    "item_w_lw_blackshard": {
+    "item_lw_blackshard": {
         "en": {
             "name": "BlackShard",
             "desc": ["* \"BlackShard\" - A small chip of{br}extremely hard glass.{br}{resetx}* Oddly, it's nearly opaque."]

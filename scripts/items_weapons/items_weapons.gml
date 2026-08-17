@@ -166,7 +166,7 @@ item_register(item_w_lw_holiday_pencil);
 function item_w_blackshard() : item_weapon() constructor {
     name = "BlackShard";
     desc = ["A dagger-like shard of the Black Knife. Strikes the weakness of dark-element enemies."]
-    lw_counterpart = item_w_lw_blackshard;
+    lw_counterpart = item_lw_blackshard;
     
 	stats = {
         attack: 16,
@@ -179,23 +179,22 @@ function item_w_blackshard() : item_weapon() constructor {
     }
 	
 	reactions = {
-		susie: "Sleigh the bad guys.",
-		ralsei: "Mmm! Minty and festive!",
-		noelle: "What is this, a barber pole?",
+		susie: "... how is this a weapon?",
+		ralsei: "I... shouldn't use it.",
 	}
     
-    //item_localize("item_w_blackshard");
+    item_localize("item_w_blackshard");
 }
 item_register(item_w_blackshard);
 
-function item_w_lw_blackshard() : item_consumable() constructor {
+function item_lw_blackshard() : item_consumable() constructor {
     name = "BlackShard";
     desc = ["* \"BlackShard\" - A small chip of{br}extremely hard glass.{br}{resetx}* Oddly, it's nearly opaque."];
     dw_counterpart = item_w_blackshard;
     
-    item_localize("item_w_lw_blackshard");
+    item_localize("item_lw_blackshard");
 }
-item_register(item_w_lw_blackshard)
+item_register(item_lw_blackshard)
 
 // axes
 function item_w_mane_ax() : item_weapon() constructor {

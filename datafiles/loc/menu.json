@@ -35,7 +35,7 @@
     },
 
     "menu_stat_attack": {
-        "en": "Attack:", "ja": "こうげき: "
+        "en": "Attack:", "ja": "こうげき:"
     },
     "menu_stat_defense": {
         "en": "Defense:", "ja": "ぼうぎょ:"
@@ -60,7 +60,7 @@
     },
 
     "menu_no_ability": {
-        "en": "(No Ability.)", "ja": "アビリティなし"
+        "en": "(No ability.)", "ja": "アビリティなし"
     },
     "menu_nothing": {
         "en": "(Nothing)", "ja": "(なし)"
