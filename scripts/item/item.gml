@@ -10,12 +10,9 @@ function item() constructor {
     
 	// item specific
 	use_type = ITEM_USE.INDIVIDUAL
-	can_use = true // can also be a function that returns boolean
-	throw_scripts = {
-		can: true,
-		execute_code: function(_index) { //executes this INSTEAD of the default item_delete
-		},
-	}
+	can_use = true; // can also be a function that returns boolean
+    can_toss = true; // can also be a function that returns boolean
+	toss_execute = undefined; // executed instead of `item_delete`. argument 0 is the item slot
 	
 	// equippable specific
 	stats = {
@@ -255,7 +252,8 @@ function item_get_in_stock(item_struct) {
 	return variable_callable_to_value(item_struct.shop_in_stock);
 }
 
-///@desc returns the type of an item
+/// @desc returns the type of an item
+/// @return {enum.ITEM_TYPE}
 function item_get_type(item_struct) {
     if is_undefined(item_struct)
         return undefined

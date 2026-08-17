@@ -205,20 +205,46 @@ function draw_scrollbar(_entry_number, _selection, _x, _y, _height = 135) {
 }
 
 function convert_leader_equipment() {
+    var __equipment_items = [];
+    
     var __weapon = party_getdata(global.party_names[0], "weapon")
     if !is_undefined(__weapon)
         global.lw_weapon = __weapon.lw_counterpart
     
-    var __armor1 = party_getdata(global.party_names[0], "armor1")
-    if !is_undefined(__armor1)
-        global.lw_armor = __armor1.lw_counterpart
+    // armor 1 priority
+    var __armor_source = undefined;
     var __armor2 = party_getdata(global.party_names[0], "armor2")
-    if !is_undefined(__armor2) && !is_undefined(__armor2.lw_counterpart)
-        global.lw_armor = __armor2.lw_counterpart
+    if !is_undefined(__armor2) && !is_undefined(__armor2.lw_counterpart) {
+        global.lw_armor = __armor2.lw_counterpart;
+        __armor_source = "armor2";
+    }
+    var __armor1 = party_getdata(global.party_names[0], "armor1")
+    if !is_undefined(__armor1) {
+        global.lw_armor = __armor1.lw_counterpart;
+        __armor_source = "armor1";
+    }
     
-    if !is_undefined(global.lw_weapon) && is_callable(global.lw_weapon)
+    // check in case the item is weird like that
+    if !is_undefined(global.lw_weapon) && item_get_type(global.lw_weapon) != ITEM_TYPE.WEAPON {
+        array_push(__equipment_items, new global.lw_weapon());
+        global.lw_weapon = undefined;
+    }
+    if !is_undefined(global.lw_armor) && item_get_type(global.lw_armor) != ITEM_TYPE.ARMOR {
+        var newitem = new global.lw_armor();
+        
+        if !struct_exists(newitem, "_data")
+            struct_set(newitem, "_data", {});
+        struct_set(newitem._data, "armor_source", __armor_source);
+        
+        array_push(__equipment_items, newitem);
+        
+        global.lw_armor = undefined;
+    }
+    
+    // create the constructors
+    if !is_undefined(global.lw_weapon) && is_callable(global.lw_weapon) && !is_struct(global.lw_weapon)
         global.lw_weapon = new global.lw_weapon()
-    if !is_undefined(global.lw_armor) && is_callable(global.lw_armor)
+    if !is_undefined(global.lw_armor) && is_callable(global.lw_armor) && !is_struct(global.lw_armor)
         global.lw_armor = new global.lw_armor()
     
     if global.world == WORLD_TYPE.LIGHT {
@@ -234,13 +260,25 @@ function convert_leader_equipment() {
                 item_delete(i, ITEM_TYPE.KEY)
             }
         }
+        global.lw_items = array_concat(global.lw_items, __equipment_items);
     }
     else {
         for (var i = array_length(global.lw_items)-1; i >= 0; i --) {
             if !is_undefined(global.lw_items[i].dw_counterpart) {
                 var newitem = new global.lw_items[i].dw_counterpart()
-                array_insert(item_get_array(item_get_type(newitem)), 0, newitem)
-                item_delete(i, ITEM_TYPE.LIGHT)
+                
+                if item_get_type(newitem) == ITEM_TYPE.WEAPON {
+                    party_setdata(global.party_names[0], "weapon", newitem);
+                    item_delete(i, ITEM_TYPE.LIGHT);
+                }
+                else if item_get_type(newitem) == ITEM_TYPE.ARMOR {
+                    party_setdata(global.party_names[0], global.lw_items[i]._data.armor_source, newitem);
+                    item_delete(i, ITEM_TYPE.LIGHT);
+                }
+                else {
+                    array_insert(item_get_array(item_get_type(newitem)), 0, newitem)
+                    item_delete(i, ITEM_TYPE.LIGHT)
+                }
             }
         }
     }

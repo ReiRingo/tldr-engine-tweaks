@@ -125,6 +125,43 @@
         }
     },
 
+    "item_w_blackshard": {
+        "en": {
+            "name": "BlackShard",
+            "desc": ["A dagger-like shard of the Black Knife. Strikes the weakness of dark-element enemies."],
+            "effect": {
+                "text": "SlayDark"
+            },
+            "reactions": {
+                "susie": "... how is this a weapon?",
+                "ralsei": "I... shouldn't use it.",
+                "noelle": ""
+            }
+        },
+        "ja": {
+            "name": "ブラックシャード",
+            "desc": ["ダガーのような　ブラックナイフのかけら。\n闇属性の敵の弱点を突く。"],
+            "effect": {
+                "text": "闇斬り"
+            },
+            "reactions": {
+                "susie": "…これが武器？",
+                "ralsei": "ボクは…使っちゃダメ",
+                "noelle": ""
+            }
+        }
+    },
+    "item_w_lw_blackshard": {
+        "en": {
+            "name": "BlackShard",
+            "desc": ["* \"BlackShard\" - A small chip of{br}extremely hard glass.{br}{resetx}* Oddly, it's nearly opaque."]
+        },
+        "ja": {
+            "name": "ブラックシャード",
+            "desc": ["＊ 「ブラックシャード」 - ものすごく かたいガラスの　ちいさなかけら。{br}{resetx}＊ ほとんど　ふとうめい。"]
+        }
+    },
+
     "item_w_mane_ax": {
         "en": {
             "name": "Mane Ax",

@@ -110,7 +110,12 @@ if state == 2 {
 			dialogue_start(item_get_desc(_item, ITEM_DESC_TYPE.FULL))
 		}
 		else if ip_selection == 2 {
-			_item.throw_scripts.execute_code(i_selection)
+            if _item.can_toss {
+                method_call(_item.toss_execute ?? item_delete, [i_selection]);
+                audio_play(snd_ui_cancel);
+            }
+            else if !is_undefined(_item.toss_execute)
+                method_call(_item.toss_execute, [i_selection]);
 		}
 		
 		dialogue_overlay = true
