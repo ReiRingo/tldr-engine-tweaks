@@ -889,6 +889,7 @@
     {"id":{"name":"items_armors","path":"scripts/items_armors/items_armors.yy",},},
     {"id":{"name":"items_consumables","path":"scripts/items_consumables/items_consumables.yy",},},
     {"id":{"name":"items_key","path":"scripts/items_key/items_key.yy",},},
+    {"id":{"name":"items_light","path":"scripts/items_light/items_light.yy",},},
     {"id":{"name":"items_spells","path":"scripts/items_spells/items_spells.yy",},},
     {"id":{"name":"items_weapons","path":"scripts/items_weapons/items_weapons.yy",},},
     {"id":{"name":"lb_mp_scripts","path":"scripts/lb_mp_scripts/lb_mp_scripts.yy",},},

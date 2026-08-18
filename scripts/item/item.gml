@@ -273,6 +273,8 @@ function item_get_type(item_struct) {
             return ITEM_TYPE.KEY;
         if array_contains(tags, "@@parent=item_spell")
             return ITEM_TYPE.SPELL; 
+        if array_contains(tags, "@@parent=item_light")
+            return ITEM_TYPE.LIGHT; 
     }
 }
 

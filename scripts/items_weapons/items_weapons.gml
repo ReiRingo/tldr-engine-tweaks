@@ -7,6 +7,7 @@ function item_weapon() : item() constructor {
         element: undefined,
         multiplier: 1.0
     }
+    convert_when_not_equipped = false;
 }
 
 // swords
@@ -167,30 +168,62 @@ function item_w_blackshard() : item_weapon() constructor {
     name = "BlackShard";
     desc = ["A dagger-like shard of the Black Knife. Strikes the weakness of dark-element enemies."]
     lw_counterpart = item_lw_blackshard;
+    convert_when_not_equipped = true;
     
 	stats = {
         attack: 16,
     }
 	icon = spr_ui_menu_icon_shard
+    
     weapon_whitelist = [ "kris", "noelle" ];
+    weapon_element = {
+        element: "dark",
+        multiplier: 2.0
+    }
+    
     effect = {
         text: "SlayDark",
         sprite: spr_ui_menu_icon_shard
     }
-	
+    
 	reactions = {
 		susie: "... how is this a weapon?",
 		ralsei: "I... shouldn't use it.",
 	}
     
+    _data = {
+        save_slash: {},
+    };
+    _const_init = method(self, function(data) {
+        _data = data;
+    });
+    
+    apply = method(self, function(member_name) {
+        _data.save_slash = struct_get(party_getdata(member_name, "battle_sprites"), "attack_eff");
+        struct_set(party_getdata(member_name, "battle_sprites"), "attack_eff", spr_bkris_attackeff_dark);
+    })
+    deapply = method(self, function(member_name) {
+        struct_set(party_getdata(member_name, "battle_sprites"), "attack_eff", _data.save_slash);
+    })
+    
     item_localize("item_w_blackshard");
 }
 item_register(item_w_blackshard);
 
-function item_lw_blackshard() : item_consumable() constructor {
+function item_lw_blackshard() : item_light() constructor {
     name = "BlackShard";
     desc = ["* \"BlackShard\" - A small chip of{br}extremely hard glass.{br}{resetx}* Oddly, it's nearly opaque."];
     dw_counterpart = item_w_blackshard;
+	
+    stats = {
+        attack: 16,
+    }
+    
+    can_toss = false;
+    toss_flavor = "* (Recently, seems like weapons can't be thrown away so easily.)";
+    toss_execute = method(self, function() {
+        dialogue_start(toss_flavor);
+    })
     
     item_localize("item_lw_blackshard");
 }

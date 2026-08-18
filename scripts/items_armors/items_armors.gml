@@ -3,6 +3,7 @@ function item_armor() : item() constructor {
 	icon = spr_ui_menu_icon_armor
     
     armor_blacklist = []
+    convert_when_not_equipped = false;
 }
 
 function item_a_ambercard() : item_armor() constructor {

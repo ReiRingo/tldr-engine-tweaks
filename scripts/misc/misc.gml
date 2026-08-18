@@ -208,7 +208,7 @@ function convert_leader_equipment() {
     var __equipment_items = [];
     
     var __weapon = party_getdata(global.party_names[0], "weapon")
-    if !is_undefined(__weapon)
+    if !is_undefined(__weapon) && !is_undefined(__weapon.lw_counterpart)
         global.lw_weapon = __weapon.lw_counterpart
     
     // armor 1 priority
@@ -219,7 +219,7 @@ function convert_leader_equipment() {
         __armor_source = "armor2";
     }
     var __armor1 = party_getdata(global.party_names[0], "armor1")
-    if !is_undefined(__armor1) {
+    if !is_undefined(__armor1) && !is_undefined(__armor1.lw_counterpart) {
         global.lw_armor = __armor1.lw_counterpart;
         __armor_source = "armor1";
     }
@@ -241,11 +241,28 @@ function convert_leader_equipment() {
         global.lw_armor = undefined;
     }
     
+    var __all_equipment = array_concat(global.weapons, global.armors);
+    for (var i = 0; i < array_length(__all_equipment); i ++) {
+        var _item = __all_equipment[i];
+        
+        if !is_struct(_item)
+            continue;
+        if struct_exists(_item, "convert_when_not_equipped") && _item.convert_when_not_equipped && !is_undefined(_item.lw_counterpart) {
+            var newitem = new _item.lw_counterpart();
+            newitem.type = ITEM_TYPE.LIGHT;
+            array_push(__equipment_items, newitem);
+        }
+    }
+    
     // create the constructors
-    if !is_undefined(global.lw_weapon) && is_callable(global.lw_weapon) && !is_struct(global.lw_weapon)
+    if !is_undefined(global.lw_weapon) && is_callable(global.lw_weapon) && !is_struct(global.lw_weapon) {
         global.lw_weapon = new global.lw_weapon()
-    if !is_undefined(global.lw_armor) && is_callable(global.lw_armor) && !is_struct(global.lw_armor)
+        global.lw_weapon.type = ITEM_TYPE.WEAPON;
+    }
+    if !is_undefined(global.lw_armor) && is_callable(global.lw_armor) && !is_struct(global.lw_armor) {
         global.lw_armor = new global.lw_armor()
+        global.lw_weapon.type = ITEM_TYPE.ARMOR;
+    }
     
     if global.world == WORLD_TYPE.LIGHT {
         for (var i = array_length(global.items)-1; i >= 0; i --) {

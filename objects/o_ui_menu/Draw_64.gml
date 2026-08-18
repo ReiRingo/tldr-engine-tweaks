@@ -471,7 +471,7 @@ if selection == 3 && state > 0 { // config
     draw_set_font(loc_font("main"))
     ui_dialoguebox_create(58, 88, 584 - 58, 414 - 88)
     
-    if state == 1 || state == 2 || state == 4 {
+    if (state == 1 || state == 2 || state == 4) && !fading_out {
         draw_text_transformed(270, 100, loc("menu_config_header"), 2, 2, 0)
         draw_sprite_ext(spr_soul, 0, 152, 168 + c_selection*35, 1, 1, 0, c_red, 1)
         
