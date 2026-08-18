@@ -111,8 +111,12 @@ if state == 2 {
 		}
 		else if ip_selection == 2 {
             if _item.can_toss {
-                method_call(_item.toss_execute ?? item_delete, [i_selection]);
-                audio_play(snd_ui_cancel);
+                method_call(_item.toss_execute ?? function(_item_index, _item) {
+                    var _pool = loc("menu_lw_toss_text");
+                    
+                    item_delete(_item_index, ITEM_TYPE.LIGHT);
+                    dialogue_start(string(array_shuffle(_pool)[0], item_get_name(_item)));
+                }, [i_selection, _item]);
             }
             else if !is_undefined(_item.toss_execute)
                 method_call(_item.toss_execute, [i_selection]);

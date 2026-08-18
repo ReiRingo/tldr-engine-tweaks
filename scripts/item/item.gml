@@ -36,6 +36,7 @@ function item() constructor {
     use_instant = function(item_index, target_index) {}
     use_instant_cancel = function(item_index, target_index) {}
     
+    use_lw_equip_text = loc("menu_lw_equip_text");
     use_encounter_text = "item_use" // will be localized. {0} is the party member name and {1} is the item name. can also be callable
 	use = function(item_index, target_index, caller = -1) {}
 	use_args = []

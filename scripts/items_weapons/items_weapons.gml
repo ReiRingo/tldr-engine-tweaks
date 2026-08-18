@@ -10,6 +10,15 @@ function item_weapon() : item() constructor {
     convert_when_not_equipped = false;
 }
 
+function __item_w_lw_equip(_item_index) {
+    item_delete(_item_index, ITEM_TYPE.LIGHT);
+    item_add(global.lw_weapon, ITEM_TYPE.LIGHT);
+    
+    global.lw_weapon = self;
+    
+    dialogue_start(string(use_lw_equip_text, item_get_name(self)));
+}
+
 // swords
 function item_w_spookysword() : item_weapon() constructor {
 	name = ["Spookysword"]
@@ -49,6 +58,7 @@ function item_w_lw_halloween_pencil() : item_weapon() constructor {
         attack: 1,
     }
     
+    use = method(self, __item_w_lw_equip);
     item_localize("item_w_lw_halloween_pencil")
 }
 item_register(item_w_lw_halloween_pencil);
@@ -83,6 +93,7 @@ function item_w_lw_pencil() : item_weapon() constructor {
         attack: 1,
     }
     
+    use = method(self, __item_w_lw_equip);
     item_localize("item_w_lw_pencil")
 }
 item_register(item_w_lw_pencil);
@@ -119,6 +130,7 @@ function item_w_lw_cactusneedle() : item_weapon() constructor {
         attack: 2,
     }
     
+    use = method(self, __item_w_lw_equip);
     item_localize("item_w_lw_cactusneedle")
 }
 item_register(item_w_lw_cactusneedle);
@@ -156,6 +168,7 @@ function item_w_lw_holiday_pencil() : item_weapon() constructor {
 	desc = ["* \"Holiday Pencil\" - 1 AT{br}{resetx}{sleep(10)}* A festive candycane pencil.{br}{resetx}{sleep(10)}* Do not eat.", "--"]
 	dw_counterpart = item_w_jingleblade;
     
+    use = method(self, __item_w_lw_equip);
 	stats = {
         attack: 1,
     }
@@ -218,6 +231,8 @@ function item_lw_blackshard() : item_light() constructor {
     stats = {
         attack: 16,
     }
+    
+    use = method(self, __item_w_lw_equip);
     
     can_toss = false;
     toss_flavor = "* (Recently, seems like weapons can't be thrown away so easily.)";

@@ -224,23 +224,6 @@ function convert_leader_equipment() {
         __armor_source = "armor1";
     }
     
-    // check in case the item is weird like that
-    if !is_undefined(global.lw_weapon) && item_get_type(global.lw_weapon) != ITEM_TYPE.WEAPON {
-        array_push(__equipment_items, new global.lw_weapon());
-        global.lw_weapon = undefined;
-    }
-    if !is_undefined(global.lw_armor) && item_get_type(global.lw_armor) != ITEM_TYPE.ARMOR {
-        var newitem = new global.lw_armor();
-        
-        if !struct_exists(newitem, "_data")
-            struct_set(newitem, "_data", {});
-        struct_set(newitem._data, "armor_source", __armor_source);
-        
-        array_push(__equipment_items, newitem);
-        
-        global.lw_armor = undefined;
-    }
-    
     var __all_equipment = array_concat(global.weapons, global.armors);
     for (var i = 0; i < array_length(__all_equipment); i ++) {
         var _item = __all_equipment[i];
@@ -261,7 +244,7 @@ function convert_leader_equipment() {
     }
     if !is_undefined(global.lw_armor) && is_callable(global.lw_armor) && !is_struct(global.lw_armor) {
         global.lw_armor = new global.lw_armor()
-        global.lw_weapon.type = ITEM_TYPE.ARMOR;
+        global.lw_armor.type = ITEM_TYPE.ARMOR;
     }
     
     if global.world == WORLD_TYPE.LIGHT {
