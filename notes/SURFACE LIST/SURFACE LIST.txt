@@ -18,7 +18,7 @@ some of these are not fixed
 - surf_final [Fixed at o_lb_dl_controller]
 - propSurf [Already freed]
 - staticSurf [Already freed]
-- party_ui_button_surf (Array) []
+- party_ui_button_surf (Array) [Fixed at o_enc]
 - tp_surf
 - bullet surf
 - trans_surf
