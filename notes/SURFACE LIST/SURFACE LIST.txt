@@ -22,9 +22,9 @@ some of these are not fixed
 - tp_surf [Freed at o_enc_tp_bar]
 - bullet_surf [Already freed]
 - trans_surf [Already freed]
-- surf_light (again??) 
-- surf_feathers
-- dodge_outline_surf
+- surf_light (again??) [Fixed at o_eff_revivesong]
+- surf_feathers [Fixed at o_eff_revivesong]
+- dodge_outline_surf 
 
 <hr>
 
