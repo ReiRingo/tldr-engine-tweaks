@@ -8,7 +8,7 @@ some of these are not fixed
 ## TO BE INSPECTED:
 
 - surf (exists in many objects--check below)
-- surf_item_info [Initialised at a function--NOT FIXED (I don't wanna edit a larger engine code)]
+- **surf_item_info** [Initialised at a function--NOT FIXED (I don't wanna edit a larger engine code)]
 - surf_prev [Fixed at o_window]
 - surf_border [Fixed at o_window]
 - surf_aura [Fixed at o_ow_prophecy]
