@@ -24,13 +24,13 @@ some of these are not fixed
 - trans_surf [Already freed]
 - surf_light (again??) [Fixed at o_eff_revivesong]
 - surf_feathers [Fixed at o_eff_revivesong]
-- dodge_outline_surf 
+- dodge_outline_surf [Fixed at o_actor]
 
 <hr>
 
 ## "surf" identifiers:
 
-- o_ui_save_select
+- o_ui_save_select [Freed]
 - o_ui_menu
 - o_ui_chapter_select
 - o_ow_prophecy [Freed]
