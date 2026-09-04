@@ -32,7 +32,7 @@ some of these are not fixed
 
 - o_ui_save_select [Freed]
 - o_ui_menu [Freed]
-- o_ui_chapter_select
+- o_ui_chapter_select [Freed]
 - o_ow_prophecy [Freed]
 - o_intro_logo [probably freed] [Is freed]
 - o_intro_ch4_midgame [probably freed] [Is freed]
