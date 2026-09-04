@@ -19,10 +19,10 @@ some of these are not fixed
 - propSurf [Already freed]
 - staticSurf [Already freed]
 - party_ui_button_surf (Array) [Fixed at o_enc]
-- tp_surf
-- bullet surf
-- trans_surf
-- surf_light (again??)
+- tp_surf [Freed at o_enc_tp_bar]
+- bullet_surf [Already freed]
+- trans_surf [Already freed]
+- surf_light (again??) 
 - surf_feathers
 - dodge_outline_surf
 
@@ -33,10 +33,10 @@ some of these are not fixed
 - o_ui_save_select
 - o_ui_menu
 - o_ui_chapter_select
-- o_ow_prophecy
-- o_intro_logo [probably freed]
-- o_intro_ch4_midgame [probably freed]
-- o_intro_ch4_firstrun [probably freed]
+- o_ow_prophecy [Freed]
+- o_intro_logo [probably freed] [Is freed]
+- o_intro_ch4_midgame [probably freed] [Is freed]
+- o_intro_ch4_firstrun [probably freed] [Is freed]
 - o_ex_shop_shopkeep_swatch
 - o_ex_ow_church_groundbg
 - o_enc
