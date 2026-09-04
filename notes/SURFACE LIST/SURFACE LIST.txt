@@ -31,7 +31,7 @@ some of these are not fixed
 ## "surf" identifiers:
 
 - o_ui_save_select [Freed]
-- o_ui_menu
+- o_ui_menu [Freed]
 - o_ui_chapter_select
 - o_ow_prophecy [Freed]
 - o_intro_logo [probably freed] [Is freed]
