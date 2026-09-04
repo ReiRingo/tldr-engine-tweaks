@@ -2,20 +2,23 @@
 
 <hr>
 
+**RULE:** I may only modify it by giving it a clean-up event
+some of these are not fixed
+
 ## TO BE INSPECTED:
 
-- surf_item_info
-- surf_prev
-- surf_border
-- surf (exists in many objects)
-- surf_aura
-- surf_text
-- surf_light
-- surf_overlay
-- surf_final
-- propSurf
-- staticSurf
-- party_ui_button_surf (Array)
+- surf (exists in many objects--check below)
+- surf_item_info [Initialised at a function--NOT FIXED (I don't wanna edit a larger engine code)]
+- surf_prev [Fixed at o_window]
+- surf_border [Fixed at o_window]
+- surf_aura [Fixed at o_ow_prophecy]
+- surf_text [Fixed at o_ow_prophecy]
+- surf_light (o_lb_dl_controller) [Fixed at o_lb_dl_controller]
+- surf_overlay [Fixed at o_lb_dl_controller]
+- surf_final [Fixed at o_lb_dl_controller]
+- propSurf [Already freed]
+- staticSurf [Already freed]
+- party_ui_button_surf (Array) []
 - tp_surf
 - bullet surf
 - trans_surf
