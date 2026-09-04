@@ -1,0 +1,40 @@
+# SOME SURFACE LEAK
+
+<hr>
+
+## TO BE INSPECTED:
+
+- surf_item_info
+- surf_prev
+- surf_border
+- surf (exists in many objects)
+- surf_aura
+- surf_text
+- surf_light
+- surf_overlay
+- surf_final
+- propSurf
+- staticSurf
+- party_ui_button_surf (Array)
+- tp_surf
+- bullet surf
+- trans_surf
+- surf_light (again??)
+- surf_feathers
+- dodge_outline_surf
+
+<hr>
+
+## "surf" identifiers:
+
+- o_ui_save_select
+- o_ui_menu
+- o_ui_chapter_select
+- o_ow_prophecy
+- o_intro_logo [probably freed]
+- o_intro_ch4_midgame [probably freed]
+- o_intro_ch4_firstrun [probably freed]
+- o_ex_shop_shopkeep_swatch
+- o_ex_ow_church_groundbg
+- o_enc
+- o_enc_tp_bar

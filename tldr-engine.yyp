@@ -312,6 +312,7 @@
     {"id":{"name":"font_prophecy","path":"fonts/font_prophecy/font_prophecy.yy",},},
     {"id":{"name":"lb_dl_setup","path":"notes/lb_dl_setup/lb_dl_setup.yy",},},
     {"id":{"name":"setup","path":"notes/setup/setup.yy",},},
+    {"id":{"name":"SURFACE LIST","path":"notes/SURFACE LIST/SURFACE LIST.yy",},},
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
     {"id":{"name":"o_actor_e_killercar","path":"objects/o_actor_e_killercar/o_actor_e_killercar.yy",},},
     {"id":{"name":"o_actor_e_virovirokun","path":"objects/o_actor_e_virovirokun/o_actor_e_virovirokun.yy",},},
