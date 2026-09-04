@@ -37,7 +37,7 @@ some of these are not fixed
 - o_intro_logo [probably freed] [Is freed]
 - o_intro_ch4_midgame [probably freed] [Is freed]
 - o_intro_ch4_firstrun [probably freed] [Is freed]
-- o_ex_shop_shopkeep_swatch
+- o_ex_shop_shopkeep_swatch [Freed]
 - o_ex_ow_church_groundbg
 - o_enc
 - o_enc_tp_bar
