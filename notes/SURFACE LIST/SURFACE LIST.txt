@@ -34,10 +34,10 @@ some of these are not fixed
 - o_ui_menu [Freed]
 - o_ui_chapter_select [Freed]
 - o_ow_prophecy [Freed]
-- o_intro_logo [probably freed] [Is freed]
+- o_intro_logo [probably freed] [Is not freed] [Freed]
 - o_intro_ch4_midgame [probably freed] [Is freed]
 - o_intro_ch4_firstrun [probably freed] [Is freed]
 - o_ex_shop_shopkeep_swatch [Freed]
-- o_ex_ow_church_groundbg
-- o_enc
-- o_enc_tp_bar
+- o_ex_ow_church_groundbg [Freed]
+- o_enc [Freed]
+- o_enc_tp_bar [Freed]
